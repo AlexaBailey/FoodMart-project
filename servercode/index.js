@@ -65,7 +65,7 @@ const db = mysql.createConnection({
   password: "alexa",
   database: "foodstore",
   multipleStatements: true,
-});
+}); 
 
 app.post("/signup", (req, res) => {
   const username = req.body.nickname;
