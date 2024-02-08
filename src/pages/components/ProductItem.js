@@ -7,7 +7,7 @@ export default function ProductItem({product,jwtUser,favourite,setAllProducts,pr
  
 
   
-const pid=product.pid
+
 const [heart,setHeart]=useState(false)
 
 const [bought,setBought]=useState(0)

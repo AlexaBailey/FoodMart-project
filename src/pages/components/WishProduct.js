@@ -6,8 +6,7 @@ import { useRouter } from 'next/router'
 export default function WishProduct({product,jwtUser,setAllProducts,products}) {
  
 
-  
-const pid=product.pid
+
 
 const [bought,setBought]=useState(0)
 
