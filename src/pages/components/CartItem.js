@@ -57,7 +57,7 @@ export default function CartCard({product,products,setAllProducts,jwtUser}) {
             <h3 style={{margin:0}} >Quantity</h3>
             <div className='q-button'>
             <button className='count-button' onClick={incrementData}><span name="sign">+</span></button>
-            {product.quantity}
+            {product?.quantity}
             <button className='count-button' onClick={decrementData} name="sign">-</button>
 
             </div>

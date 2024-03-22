@@ -52,7 +52,7 @@ const [bought,setBought]=useState(0)
 
 
   }, []); 
- console.log(favourite)
+
  const router =useRouter()
 
  const incrementData = async () => {
@@ -99,7 +99,7 @@ const decrementData = async () => {
 
 
       
-       const res = await axios.post(`http://localhost:8800/disliked/${product.pid}/${jwtUser.id}`,{ id: product.pid, userid:jwtUser.id});
+       const res = await axios.post(`http://localhost:8800/disliked/${product?.pid}/${jwtUser.id}`,{ id: product.pid, userid:jwtUser.id});
        
     } catch (err) {
       console.log(err);
@@ -113,14 +113,14 @@ const decrementData = async () => {
     <div className='productcover' style={{display:'flex',flexDirection:'column', alignItems:'flex-heartt' ,  padding:10, paddingTop:0}}>
 
         <div style={{display:'flex', alignSelf:'center'}}>
-            <img className='order-img' src={product.prodimage}/>
+            <img className='order-img' src={product?.prodimage}/>
         </div>
-        <h3 style={{marginBottom:2}}>{product.pname}</h3>
-        <small style={{color:'gray'}}>by {product.brand}</small>
+        <h3 style={{marginBottom:2}}>{product?.pname}</h3>
+        <small style={{color:'gray'}}>by {product?.brand}</small>
         <div style={{display:'flex',gap:3, alignItems:'center'}}>
 
-        <h3>{product.price} $ </h3>
-        <span>/ {product.weight}</span>
+        <h3>{product?.price} $ </h3>
+        <span>/ {product?.weight}</span>
       </div>
         <div style={{display:'flex',gap:6, alignItems:'center'}}>
             <button className='count-button' onClick={()=>incrementData()}>
