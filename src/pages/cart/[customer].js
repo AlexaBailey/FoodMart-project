@@ -36,7 +36,7 @@ export default function Cart() {
             try {
              
               
-              const res = await axios.get(`https://foodmart-api-production.up.railway.app//cart/orders`,{params:{id:jwtUser.id}});
+              const res = await axios.get(`https://foodmart-api-production.up.railway.app/cart/orders`,{params:{id:jwtUser.id}});
               setAllProducts(res.data);
                 let sum = products.reduce((accumulator, object) => {
                   return accumulator + object.price*object.quantity;

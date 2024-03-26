@@ -58,7 +58,7 @@ export default function Upload() {
       formData.append("usersid", jwtUser.id);
     formData.append("weight", weight),
       axios
-        .post("https://foodmart-api-production.up.railway.app//upload", formData)
+        .post("https://foodmart-api-production.up.railway.app/upload", formData)
         .then((response) => {
           console.log(response.data);
           alert("✔️ Product added successfully!");
@@ -72,7 +72,7 @@ export default function Upload() {
     setLoaded(true);
     const getData = async () => {
       try {
-        const res = await axios.get(`https://foodmart-api-production.up.railway.app//categories`);
+        const res = await axios.get(`https://foodmart-api-production.up.railway.app/categories`);
 
         setInfo(res.data);
 

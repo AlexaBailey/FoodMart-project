@@ -27,7 +27,7 @@ const [bought,setBought]=useState(0)
       
     
         
-        const res = await axios.get(`https://foodmart-api-production.up.railway.app//quantity/${product?.pid}/${jwtUser?.id}`,{params:{userid:jwtUser?.id, id:product?.pid}});
+        const res = await axios.get(`https://foodmart-api-production.up.railway.app/quantity/${product?.pid}/${jwtUser?.id}`,{params:{userid:jwtUser?.id, id:product?.pid}});
           if (res.data.length>0){
             setBought(Number(res.data[0].num))
 
@@ -57,7 +57,7 @@ const [bought,setBought]=useState(0)
  const incrementData = async () => {
   try {
     
-    const res = await axios.post(`https://foodmart-api-production.up.railway.app//cart/orders`,null, {params:{sign:'+', pId:product?.pid, cId:jwtUser?.id}});
+    const res = await axios.post(`https://foodmart-api-production.up.railway.app/cart/orders`,null, {params:{sign:'+', pId:product?.pid, cId:jwtUser?.id}});
     setBought(curr=>curr+1)
 
 
@@ -70,7 +70,7 @@ const [bought,setBought]=useState(0)
 const decrementData = async () => {
   try {
   
-    const res = await axios.post(`https://foodmart-api-production.up.railway.app//cart/orders`,null, {params:{sign:'-', pId:product?.pid, cId:jwtUser?.id}});
+    const res = await axios.post(`https://foodmart-api-production.up.railway.app/cart/orders`,null, {params:{sign:'-', pId:product?.pid, cId:jwtUser?.id}});
     setBought(curr=>curr-1)
 
   } catch (err) {
@@ -83,7 +83,7 @@ const decrementData = async () => {
     
         setHeart(true)      
       
-       const res=await axios.post(`https://foodmart-api-production.up.railway.app//liked/${product?.pid}/${jwtUser.id}/${product?.usersid}`,{ id: product?.pid, userid:jwtUser.id, sellerid:product?.usersid});
+       const res=await axios.post(`https://foodmart-api-production.up.railway.app/liked/${product?.pid}/${jwtUser.id}/${product?.usersid}`,{ id: product?.pid, userid:jwtUser.id, sellerid:product?.usersid});
      
     } catch (err) {
       console.log(err);
@@ -98,7 +98,7 @@ const decrementData = async () => {
 
 
       
-       const res = await axios.post(`https://foodmart-api-production.up.railway.app//disliked/${product?.pid}/${jwtUser.id}`,{ id: product?.pid, userid:jwtUser.id});
+       const res = await axios.post(`https://foodmart-api-production.up.railway.app/disliked/${product?.pid}/${jwtUser.id}`,{ id: product?.pid, userid:jwtUser.id});
        
     } catch (err) {
       console.log(err);
@@ -107,7 +107,7 @@ const decrementData = async () => {
   const removeProduct = async () => {
     try {
       console.log("delete")
-      const res = await axios.delete(`https://foodmart-api-production.up.railway.app//products/${product?.pid}`,{params:{pid:product?.pid}});
+      const res = await axios.delete(`https://foodmart-api-production.up.railway.app/products/${product?.pid}`,{params:{pid:product?.pid}});
         setAllProducts(products.filter(obj=>obj.pid!=product?.pid))
   
   
