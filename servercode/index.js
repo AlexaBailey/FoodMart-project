@@ -39,7 +39,7 @@ const upload = multer({
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["https://foodmart-project-production.up.railway.app"],
     methods: ["GET", "POST", "DELETE"],
     credentials: true,
   })
