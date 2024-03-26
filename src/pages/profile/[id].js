@@ -30,7 +30,7 @@ export default function UserInfo() {
 
     onSubmit: async (values) => {
       try {
-        await axios.post(`https://foodmart-api-production.up.railway.app/profile/${jwtUser.id}`, values);
+        await axios.post(`http://localhost:8800/profile/${jwtUser.id}`, values);
         router.push(`/profile/info/${jwtUser.id}`);
       } catch (err) {
         setError(true);
@@ -73,7 +73,7 @@ export default function UserInfo() {
         console.log("id", jwtUser.id);
 
         const res = await axios.get(
-          `https://foodmart-api-production.up.railway.app/profile/info/${jwtUser.id}`,
+          `http://localhost:8800/profile/info/${jwtUser.id}`,
           { params: { id: jwtUser.id } }
         );
         setInfo(res.data);

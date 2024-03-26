@@ -4,7 +4,7 @@ export default function CartCard({product,products,setAllProducts,jwtUser}) {
 
   const incrementData = async () => {
     try {
-      const res = await axios.post(`https://foodmart-api-production.up.railway.app/cart/orders`,null, {params:{sign:'+', pId:product?.pid, cId:jwtUser?.id}});
+      const res = await axios.post(`http://localhost:8800/cart/orders`,null, {params:{sign:'+', pId:product?.pid, cId:jwtUser?.id}});
       
 
      
@@ -15,7 +15,7 @@ export default function CartCard({product,products,setAllProducts,jwtUser}) {
   };
   const decrementData = async () => {
     try {
-      const res = await axios.post(`https://foodmart-api-production.up.railway.app/cart/orders`,null, {params:{sign:'-', pId:product?.pid, cId:jwtUser?.id}});
+      const res = await axios.post(`http://localhost:8800/cart/orders`,null, {params:{sign:'-', pId:product?.pid, cId:jwtUser?.id}});
       
     } catch (err) {
       console.log(err);
@@ -24,7 +24,7 @@ export default function CartCard({product,products,setAllProducts,jwtUser}) {
   const removeProduct = async () => {
     try {
       console.log("delete")
-      const res = await axios.delete(`https://foodmart-api-production.up.railway.app/cart/remove/${product?.pid}/${jwtUser?.id}`,{params:{pid:product?.pid,id:jwtUser?.id}});
+      const res = await axios.delete(`http://localhost:8800/cart/remove/${product?.pid}/${jwtUser?.id}`,{params:{pid:product?.pid,id:jwtUser?.id}});
         setAllProducts(products.filter(obj=>obj?.pid!=product?.pid))
   
   
