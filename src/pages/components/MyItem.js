@@ -7,7 +7,6 @@ export default function ProductItem({product,jwtUser,favourite,setAllProducts,pr
  
 
   
-const pid=product.pid
 const [heart,setHeart]=useState(false)
 
 const [bought,setBought]=useState(0)
@@ -24,11 +23,11 @@ const [bought,setBought]=useState(0)
 
 
       try { 
-        console.log("id",jwtUser.id)
+
       
     
         
-        const res = await axios.get(`http://localhost:8800/quantity/${product.pid}/${jwtUser.id}`,{params:{userid:jwtUser.id, id:product.pid}});
+        const res = await axios.get(`http://localhost:8800/quantity/${product?.pid}/${jwtUser?.id}`,{params:{userid:jwtUser?.id, id:product?.pid}});
           if (res.data.length>0){
             setBought(Number(res.data[0].num))
 
@@ -58,7 +57,7 @@ const [bought,setBought]=useState(0)
  const incrementData = async () => {
   try {
     
-    const res = await axios.post(`http://localhost:8800/cart/orders`,null, {params:{sign:'+', pId:product.pid, cId:jwtUser.id}});
+    const res = await axios.post(`http://localhost:8800/cart/orders`,null, {params:{sign:'+', pId:product?.pid, cId:jwtUser?.id}});
     setBought(curr=>curr+1)
 
 
@@ -71,7 +70,7 @@ const [bought,setBought]=useState(0)
 const decrementData = async () => {
   try {
   
-    const res = await axios.post(`http://localhost:8800/cart/orders`,null, {params:{sign:'-', pId:product.pid, cId:jwtUser.id}});
+    const res = await axios.post(`http://localhost:8800/cart/orders`,null, {params:{sign:'-', pId:product?.pid, cId:jwtUser?.id}});
     setBought(curr=>curr-1)
 
   } catch (err) {
@@ -84,7 +83,7 @@ const decrementData = async () => {
     
         setHeart(true)      
       
-       const res=await axios.post(`http://localhost:8800/liked/${product.pid}/${jwtUser.id}/${product.usersid}`,{ id: product.pid, userid:jwtUser.id, sellerid:product.usersid});
+       const res=await axios.post(`http://localhost:8800/liked/${product?.pid}/${jwtUser.id}/${product?.usersid}`,{ id: product?.pid, userid:jwtUser.id, sellerid:product?.usersid});
      
     } catch (err) {
       console.log(err);
@@ -99,7 +98,7 @@ const decrementData = async () => {
 
 
       
-       const res = await axios.post(`http://localhost:8800/disliked/${product.pid}/${jwtUser.id}`,{ id: product.pid, userid:jwtUser.id});
+       const res = await axios.post(`http://localhost:8800/disliked/${product?.pid}/${jwtUser.id}`,{ id: product?.pid, userid:jwtUser.id});
        
     } catch (err) {
       console.log(err);
@@ -108,8 +107,8 @@ const decrementData = async () => {
   const removeProduct = async () => {
     try {
       console.log("delete")
-      const res = await axios.delete(`http://localhost:8800/products/${product.pid}`,{params:{pid:product.pid}});
-        setAllProducts(products.filter(obj=>obj.pid!=product.pid))
+      const res = await axios.delete(`http://localhost:8800/products/${product?.pid}`,{params:{pid:product?.pid}});
+        setAllProducts(products.filter(obj=>obj.pid!=product?.pid))
   
   
 
@@ -130,14 +129,14 @@ const decrementData = async () => {
     <div className='productcover' style={{display:'flex',flexDirection:'column', alignItems:'flex-heartt' ,  padding:10, paddingTop:0}}>
 
         <div style={{display:'flex', alignSelf:'center'}}>
-            <img className='order-img' src={product.prodimage}/>
+            <img className='order-img' src={product?.prodimage}/>
         </div>
-        <h3 style={{marginBottom:2}}>{product.pname}</h3>
-        <small style={{color:'gray'}}>by {product.brand}</small>
+        <h3 style={{marginBottom:2}}>{product?.pname}</h3>
+        <small style={{color:'gray'}}>by {product?.brand}</small>
         <div style={{display:'flex',gap:3, alignItems:'center'}}>
 
-        <h3>{product.price} $ </h3>
-        <span>/ {product.weight}</span>
+        <h3>{product?.price} $ </h3>
+        <span>/ {product?.weight}</span>
       </div>
         <div style={{display:'flex',gap:6, alignItems:'center'}}>
             <button className='count-button' onClick={()=>incrementData()}>
