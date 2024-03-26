@@ -21,7 +21,7 @@ const Login=()=> {
     onSubmit: async (values)=> {
 
       try {
-        const {data} = await axios.post("http://localhost:8800/login", values)
+        const {data} = await axios.post("https://foodmart-api-production.up.railway.app//login", values)
         localStorage.setItem("token", data);
       
       
