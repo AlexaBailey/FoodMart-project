@@ -32,7 +32,7 @@ export default function UserInfo() {
         console.log(jwtUser.id);
 
         const res = await axios.get(
-          `http://localhost:8800/profile/info/${jwtUser.id}`,
+          `https://foodmart-api-production.up.railway.app/profile/info/${jwtUser.id}`,
           { params: { id: jwtUser.id } }
         );
         setInfo(res.data);

@@ -40,7 +40,7 @@ useEffect(() => {
     try {
      
       
-      const res = await axios.get(`http://localhost:8800/foods/${department}/${jwtUser.id}`,{params:{department:department,id:jwtUser.id}});
+      const res = await axios.get(`https://foodmart-api-production.up.railway.app/foods/${department}/${jwtUser.id}`,{params:{department:department,id:jwtUser.id}});
       setAllProducts(res.data[1]);
       setFavourite(res.data[2])
 
@@ -56,7 +56,7 @@ const handleSubmit= async (e) => {
   
   try {
     e.preventDefault()
-    const res = await axios.post(`http://localhost:8800/foods/${department}/${jwtUser.id}`,{params:{id:jwtUser.id,department:department,},search:search});
+    const res = await axios.post(`https://foodmart-api-production.up.railway.app/foods/${department}/${jwtUser.id}`,{params:{id:jwtUser.id,department:department,},search:search});
     setAllProducts(res.data[1]);
     setFavourite(res.data[2])
         console.log(products)

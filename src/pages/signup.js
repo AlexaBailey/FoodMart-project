@@ -31,7 +31,7 @@ const router=useRouter()
     onSubmit: async (values)=> {
 
       try {
-        await axios.post("http://localhost:8800/signup", values);
+        await axios.post("https://foodmart-api-production.up.railway.app/signup", values);
         router.push('/login')
    
       } catch (err) {
